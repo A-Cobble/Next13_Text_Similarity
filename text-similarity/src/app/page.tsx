@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Paragraph from './components/ui/Paragraph';
 import Link from 'next/link';
 import Image from 'next/image';
+import 'simplebar-react/dist/simplebar.min.css'
 
 export const metadata: Metadata = {
   title: 'Similarity API | Home',

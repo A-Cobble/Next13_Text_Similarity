@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 
 const headingVariants = cva(
-  "text-black dar:text-white text-center lg:text-left font-extrabold leading-tight tracking-tighter",
+  "text-black dark:text-white text-center lg:text-left font-extrabold leading-tight tracking-tighter",
   {
     variants:{
       size:{
