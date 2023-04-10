@@ -1,10 +1,9 @@
-import { Inter } from 'next/font/google';
-import LargeHeading from './components/ui/LargeHeading'
+// import { Inter } from 'next/font/google';
+import LargeHeading from '@/components/ui/LargeHeading'
 import type { Metadata } from "next";
-import Paragraph from './components/ui/Paragraph';
+import Paragraph from '@/components/ui/Paragraph';
 import Link from 'next/link';
 import Image from 'next/image';
-import 'simplebar-react/dist/simplebar.min.css'
 
 export const metadata: Metadata = {
   title: 'Similarity API | Home',
@@ -29,7 +28,7 @@ export default function Home() {
             .
           </Paragraph>
 
-          <div className="relative w-full max-w-lg lg:max-w-3xl lg:left-1/2 aspect-square lg:absolute">
+          <div className="relative w-full max-w-xl lg:max-w-3xl lg:left-1/2 aspect-square lg:absolute">
             <Image 
               priority
               className='img-shadow'
