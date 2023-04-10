@@ -9,7 +9,7 @@ const paragraphVariants = cva(
   {
     variants:{
       size:{
-        default: 'text-base sm:text-large',
+        default: 'text-base sm:text-lg',
         sm: 'text-sm, sm:text-base',
       },
     },
