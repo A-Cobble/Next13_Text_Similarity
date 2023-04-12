@@ -1,8 +1,10 @@
 'use client'
 
 import { FC, FormEvent, useState } from 'react';
-import { toast } from './ui/Toast';
+import { toast } from '@/ui/Toast';
 import { createApiKey } from '@/helpers/create-api-key';
+import { Key } from 'lucide-react';
+import LargeHeading from '@/ui/LargeHeading'
 
 
 const RequestApiKey: FC = () => {
@@ -36,7 +38,14 @@ const RequestApiKey: FC = () => {
       setIsCreating(false)
     }
   }
-   return <div>RequestApiKey</div>
+  return (
+    <div className='container md:max-w-2xl'>
+      <div className='flex flex-col gap-6 items-center'>
+        <Key className='mx-auto h-12 w-12 text-gray-400' />
+        <LargeHeading></LargeHeading>
+      </div>
+    </div>
+  )
 }
 
 export default RequestApiKey
