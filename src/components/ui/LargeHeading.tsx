@@ -36,6 +36,6 @@ const LargeHeading = forwardRef<HTMLHeadingElement, LargeHeadingProps>(
   }
 )
 
-LargeHeading.displayName = 'Paragraph'
+LargeHeading.displayName = 'LargeHeading'
 
 export default LargeHeading

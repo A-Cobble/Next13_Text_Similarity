@@ -5,6 +5,8 @@ import { toast } from '@/ui/Toast';
 import { createApiKey } from '@/helpers/create-api-key';
 import { Key } from 'lucide-react';
 import LargeHeading from '@/ui/LargeHeading'
+import Paragraph from '@/ui/Paragraph';
+import CopyButton from './CopyButton';
 
 
 const RequestApiKey: FC = () => {
@@ -42,8 +44,24 @@ const RequestApiKey: FC = () => {
     <div className='container md:max-w-2xl'>
       <div className='flex flex-col gap-6 items-center'>
         <Key className='mx-auto h-12 w-12 text-gray-400' />
-        <LargeHeading></LargeHeading>
+        <LargeHeading>Request your API Key</LargeHeading>
+        <Paragraph>You haven&apos;t requested an API key yet.</Paragraph>
       </div>
+
+      <form
+        onSubmit={createNewApiKey}
+        className='mt-6 sm:flex sm:items-center'
+        action='#'
+        >
+        <div className='relative rounded-md shadow-dm sm:min-w-0 sm:flex-1'>
+          {apiKey? (
+            <CopyButton 
+              type="button"
+              valueToCopy={apiKey} 
+              className='absolute inset-y-0 right-0 animate-in fade-in duration-300' />
+          ): null}
+        </div>
+      </form>
     </div>
   )
 }
