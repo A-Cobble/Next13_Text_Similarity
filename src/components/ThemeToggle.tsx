@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 import { FC } from 'react';
 import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from './ui/DropdownMenu';
 import { Laptop, Moon, Sun } from 'lucide-react';
-import Button from '@/ui/Button';
+import { Button } from '@/ui/Button';
 import Icons from '@/ui/Icons';
 
 interface ThemeToggleProps {
