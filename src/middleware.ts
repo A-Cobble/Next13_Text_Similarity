@@ -1,5 +1,6 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
+import { getToken } from "next-auth/jwt";
 import { withAuth } from "next-auth/middleware"
 import { NextResponse } from "next/server";
 
@@ -29,5 +30,32 @@ export default withAuth(
         return NextResponse.json({error: 'Internal Server Error'})
       }
     }
+
+    //Manage route protection
+    const token = await getToken({ req })
+    const isAuth = !!token
+    const isAuthPage = pathname.startsWith('/login');
+
+    const sensitiveRoutes = ['/dashboard'];
+    if(isAuthPage){
+      if(isAuth){
+        return NextResponse.redirect(new URL('/dashboard', req.url))
+      }
+      return null;
+    }
+    if(!isAuth && sensitiveRoutes.some((route) => pathname.startsWith(route))){
+      return NextResponse.redirect(new URL('/login', req.url))
+    }
+  },
+  {
+    callbacks: {
+      async authorized() {
+        return true
+      },
+    },
   }
 )
+
+export const config ={
+  matcher: ['/', '/login', '/dashboard/:path*', '/api/:path*']
+}
