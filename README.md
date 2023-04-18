@@ -56,9 +56,32 @@ Create a project in the Google Cloud Console then navigate to APIs & Services ->
 Once here configure your OAuth consent screen and then create a OAuth client ID (under create credentials)
 Copy the Google ClientID and Google Client Secret into the appropriate fields in the .env file
 
-Following the Google console setup create a project on [PlanetScale](https://planetscale.com/). Once created click on the connect button and copy the DATABASE_URL value into the .env file.
+<br>
+Following the Google console setup create a project on [PlanetScale](https://planetscale.com/). Once created click on the connect button, select Prisma in the Connect with field, and copy the DATABASE_URL value into the .env file. Once the environment variables have been input run:
 
-Next, generate your openai key by proceeding to [OpenAI's](https://platform.openai.com/account/api-keys) website, loging in and creating a new secret key. Copy the newly generated key into the .env file.
+<br>
+
+```bash
+npx prisma db push
+
+npx prisma generate
+
+#or
+
+yarn prisma db push
+
+yarn prisma generate
+```
+
+<br>
+Next, generate your OpenAI key by proceeding to [OpenAI's](https://platform.openai.com/account/api-keys) website, loging in and creating a new secret key. Copy the newly generated key into the .env file.
+
+<br>
+Once, you have your OpenAI key create a randomly generated NEXTAUTH_SECRET and then enter http://localhost:3000 into NEXTAUTH_URL.
+
+<br>
+Finally, navigate to [upstash.com](https://upstash.com), log in and create a new database. Locate UPSTASH_REDIS_REST_TOKEN under the rest api section. Copy that value and add it to the .env file for REDIS_SECRET. Do the same for UPSTASH_REDIS_REST_URL but add it to the .env file for REDIS_URL. This completes all environment variables. (You may need to restart your server)
+
 <br>
 <br>
 
